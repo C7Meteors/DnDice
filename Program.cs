@@ -8,64 +8,31 @@ namespace DnDice
 {
     class Program
     {
-        private static int dice;
 
         static void Main(string[] args)
         {
             Console.WriteLine("What type of dice would you like to roll?");
-            Console.WriteLine("1. 4 sided");
-            Console.WriteLine("2. 6 sided");
-            Console.WriteLine("3. 8 sided");
-            Console.WriteLine("4. 10 sided");
-            Console.WriteLine("5. 12 sided");
-            Console.WriteLine("6. 20 sided");
+            Console.WriteLine("Please enter a value between 4 and 20. Press enter when you have selected your dice.");
             Console.WriteLine();
 
-            int dice;
+            int diceRoll;
 
-            dice = int.Parse(Console.ReadLine());
+            diceRoll = int.Parse(Console.ReadLine());
 
             Console.Clear();
 
-            if (dice == 1)
+            if (diceRoll >= 4)
             {
-                RollDice roll = new RollDice();
-                roll.Rolld4();
+                if (diceRoll <= 20)
+                {
+                    RollDice roll = new RollDice();
+                    roll.Rolld(diceRoll);
+                }
             }
 
-            if (dice == 2)
+            else
             {
-                RollDice roll = new RollDice();
-                roll.Rolld6();
-            }
-
-            if (dice == 3)
-            {
-                RollDice roll = new RollDice();
-                roll.Rolld8();
-            }
-
-            if (dice == 4)
-            {
-                RollDice roll = new RollDice();
-                roll.Rolld10();
-            }
-
-            if (dice == 5)
-            {
-                RollDice roll = new RollDice();
-                roll.Rolld12();
-            }
-
-            if (dice == 6)
-            {
-                RollDice roll = new RollDice();
-                roll.Rolld20();
-            }
-
-            if (dice > 6)
-            {
-                Console.WriteLine("I'm sorry, please choose an option between 1 and 6");
+                Console.WriteLine("Please enter a value between 4 and 20.");
             }
 
             Console.WriteLine();
